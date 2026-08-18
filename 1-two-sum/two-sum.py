@@ -5,10 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        nummap = {}
-         
+        nummap={}
         for i in range(len(nums)):
-            comp = target-nums[i]
-            if (comp in nummap):
-                return [i,nummap[comp]]
-            nummap[nums[i]] = i
+            k=target-nums[i]
+            if k in nummap:
+               return [nummap[k],i]
+            else:
+                nummap[nums[i]]=i

@@ -4,14 +4,15 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        seen = set()
         longest = 0
-        charset =set()
         l=0
         for r in range(len(s)):
-            while s[r] in charset:
-                charset.remove(s[l])
+            while s[r] in seen:
+                seen.remove(s[l])
                 l+=1
-            charset.add(s[r])
-            w=r-l+1
-            longest = max(longest,w)
+            seen.add(s[r])
+            longest=max(longest, r-l+1)
         return longest
+
+
